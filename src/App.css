@@ -1,38 +1,366 @@
-.App {
-  text-align: center;
+body{
+ margin: 0;
+ padding: 0;
+font-family: sans-serif;
+}
+ /* loading */
+ body {
+  margin: 0;
+  padding: 0;
+  font-family: montserrat;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#centerloading{
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  text-align: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  min-height: 100vh;
 }
 
-.App-link {
-  color: #61dafb;
+.ring {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  animation: ring 2s linear infinite;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@keyframes ring {
+  0% {
+      transform: rotate(0deg);
+      box-shadow: 1px 5px 2px #e65c00;
   }
-  to {
-    transform: rotate(360deg);
+
+  50% {
+      transform: rotate(180deg);
+      box-shadow: 1px 5px 2px #18b201;
+  }
+
+  100% {
+      transform: rotate(360deg);
+      box-shadow: 1px 5px 2px #0456c8;
+  }
+}
+
+.ring:before {
+  position: absolute;
+  content: '';
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(255, 254, 254, 0.3);
+}
+
+#spanloading{
+  color: #e9e3e3;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 200px;
+  animation: text 3s ease-in-out infinite;
+}
+/* //end loading */
+.nav-link{
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(12, 12, 150) !important;
+}
+.nav-link:hover{
+  color: rgb(12, 12, 150) !important;
+  font-size: 20px;
+  font-weight: 800;
+  
+}
+.nav-link.active{
+  color: rgb(12, 12, 150) !important;
+  font-size: 20px;
+  font-weight: 600;
+}
+.fa-solid.fa-xmark,.fa-solid.fa-paperclip,.fa-solid.fa-circle-down,.fa-solid.fa-plus,.fa-regular.fa-bookmark {
+  cursor: pointer;
+} 
+.fa-solid.fa-magnifying-glass,.fa-regular.fa-paper-plane,.fa-regular.fa-heart,.fa-solid.fa-bookmark {
+  cursor: pointer;
+}
+#navbarchat,#messagepage{
+  background-color: rgb(243, 239, 239)
+  
+}
+#navbaruser{
+  height: 50px;
+}
+
+#Chatpage,#userpage,#messagepage,#navbaruser{
+  padding: 0;
+  margin: 0;
+}
+
+#homepage{
+  height: 468px;
+  background-color: rgb(12, 12, 150);
+  overflow-y: auto; 
+  overflow-x: hidden; 
+  padding: 5px;
+}
+
+#homepage::-webkit-scrollbar,#usersspage::-webkit-scrollbar,#messagetext::-webkit-scrollbar {
+  width: 8px; 
+}
+
+#homepage::-webkit-scrollbar-thumb,#usersspage::-webkit-scrollbar-thumb,#messagetext::-webkit-scrollbar-thumb {
+  background-color: #0d6efd; 
+  border-radius: 10px; 
+}
+
+#homepage::-webkit-scrollbar-track{
+  background: rgb(12, 12, 150); 
+}
+#messageform{
+justify-content: center;
+align-items: center;
+height: 76px;
+
+}
+
+#usersspage{
+  height: 502px;
+  overflow-y: auto; 
+  overflow-x: hidden; 
+  padding: 5px;
+}
+#imageuser{
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  transition: opacity 0.3s ease; 
+}
+#bodyuser{
+  border-left: none ;
+  border-right: none ;
+  border-bottom:none ;
+  border-top: 1px solid rgb(12, 12, 150) ;
+  border-top-left-radius: 0;
+border-top-right-radius: 0;
+}
+#userrow:hover{
+  opacity: 0.5;
+cursor: pointer;
+background-color: rgb(230, 230, 235);
+border-top: 0px solid white ;
+}
+#messageuser{
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+#userrowchoose{
+  color: white;
+  background-color: rgb(12, 12, 150);
+}
+#bodyuserchoose{
+  color: white;
+  background-color: rgb(12, 12, 150);
+}
+#cardmessage,#cardmessage,#messagecard2,#messagecard1{
+margin: 2px;
+padding: 2px;
+}
+
+#messagetext{
+  overflow-y: auto; 
+  overflow-x: hidden; 
+  height: 50px;
+  border: 3px solid #0d6efd; 
+  border-radius: 10px;
+}
+#usernameatcard{
+  font-size: 18px;
+  font-weight: 400;
+}
+#filedrop{
+  width: 50px ;
+}
+
+/* In main.css */
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 4px rgb(6, 6, 184); /* customize the focus outline */
+
+}
+
+button.navbar-toggler{
+  border-color: rgb(6, 6, 184)!important;
+  height: 45px;
+}
+.navbar-toggler {
+  border: none  !important; /* Remove border */
+}
+
+.navbar-toggler-icon {
+  background-image: none  !important; /* Remove default icon */
+}
+
+/* Create the three lines */
+.navbar-toggler::before,
+.navbar-toggler::after {
+  content: '';
+  display: block;
+  width: 30px; /* Width of the lines */
+  height: 3px; /* Height of the lines */
+  background-color: rgb(6, 6, 184); /* Change to your desired color */
+  margin: 10px auto; /* Center the lines vertically */
+}
+
+.navbar-toggler::before {
+  background-color: rgb(6, 6, 184); /* Top line color */
+}
+
+.navbar-toggler::after {
+  background-color: rgb(6, 6, 184); /* Bottom line color */
+}
+
+.navbar-toggler {
+  position: relative;
+
+}
+
+.navbar-toggler span {
+  display: block;
+  width: 30px; /* Width of the lines */
+  height: 3px; /* Height of the lines */
+  background-color: rgb(6, 6, 184); /* Middle line color */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#inputfile1{
+  width: 250px ;
+  background-color: #0456c8;
+}
+#inputfile2{
+  width: 230px ;
+  border:1px solid #0456c8;
+  border-radius: 10px;
+}
+#inputfile2::placeholder {
+  color: rgb(6, 6, 184) !important;
+  font-style: italic;
+}
+
+/* navbarscreen */
+@media only screen and (max-width: 991px){
+  .navbar-collapse{
+    display: flex;
+    flex-direction: column;
+    text-align:end;
+    align-items:end;
+    justify-content: end;
+  }
+  #inusernav{
+    display: flex;
+    flex-direction: column;
+    text-align:end;
+    align-items:end;
+    justify-content: end;
+  }
+}
+
+/* screen for user renders */
+@media only screen and (max-width: 768px){
+  /* card of user */
+   #usernameatcard{
+    margin-left: -10px;
+    font-size: 13px;
+    font-weight: 800;
+  } 
+  #imageuser{
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+  }
+  #usernameatcardp{
+    margin-left: -10px;
+  }
+}
+/* screen for chat renders */
+@media only screen and (max-width: 500px){
+  #usernameinchatnav{
+    font-size: 14px;
+    font-weight: 300;
+  }
+  #messageuser{
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+  }
+  #accountuser{
+    font-size: 16px;
+    font-weight: 300;
+  }
+  #usernameatcard{
+    margin-left: -10px;
+    font-size: 11px;
+    font-weight: 800;
+  } 
+  #imageuser{
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+  }
+  #usernameatcardp{
+    margin-left: -10px;
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 392px){
+  #usernameinchatnav{
+    font-size: 12px;
+    font-weight: 300;
+  }
+  #messageuser{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+  }
+  #accountuser{
+    font-size: 12px;
+    font-weight: 600;
+  }
+  #usernameatcard{
+    margin-left: -30px;
+    font-size: 11px;
+    font-weight: 800;
+  } 
+  #imageuser{
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+  }
+  #usernameatcardp{
+    margin-left: -15px;
+    font-size: 12px;
+  }
+
+}
+
+@media only screen and (min-width: 576px) and (max-width: 665px) {
+  #usernameatcard{
+    margin-left: -30px;
+    font-size: 13px;
+    font-weight: 800;
+  } 
+  #imageuser{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+  }
+  #usernameatcardp{
+    margin-left: -15px;
+    font-size: 12px;
   }
 }
